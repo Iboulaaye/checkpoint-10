@@ -1,0 +1,32 @@
+PROCEDURE dot_product(V1: ARRAY_OF INTEGER[n]; V2: ARRAY_OF type[n])/*on ajoute les arguments en utilisant le Pass by value */
+VAR
+    n,i:INTEGER;
+    Ps: INTEGER,
+BEGIN
+    
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Ps := Ps + V1[i]*V2[i];
+    END_FOR
+END
+
+ALGORITHM Produit_scalaire
+VAR
+    n,i : INTEGER;
+    Tab1 : ARRAY_OF INTEGER[n];
+    Tab2 : ARRAY_OF INTEGER[n];
+    k : dot_product(Tab1,Tab2) /*on stocke la procédure dans une variable afin d'utiliser la variable*/
+BEGIN
+    Write("Donner la taille des tableaux")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(Tab1[i])
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(Tab2[i])
+    END_FOR
+    IF (k:=0) THEN
+        Write("Les 2 vecteurs sont orthogonaux")
+    ELSE
+        Write("les 2 vecteurs ne sont pas orthogonaux")
+    END_IF
+END

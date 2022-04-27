@@ -1,0 +1,33 @@
+FUNCTION dot_product(VAR V1:ARRAY_OF INTEGER, VAR V2:ARRAY_OF INTEGER) : INTEGER /*Pass by reference using VAR*/
+VAR
+    n,i : INTEGER;
+    Ps : INTEGER = 0; /*c'est la variable qui va recevoir le calcul du produit scalaire*/ 
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Ps := Ps + V1[i]*V2[i]; /*on multiplie chaque element des 2 tableaux puis on l'additionne au variable qui va recevoir le produit scalaire*/
+    END_FOR
+    RETURN Ps ; /*puisque c'est une fonction elle retourne la valeur de l'operation*/
+END
+
+ALGORITHM Produit_scalaire
+VAR
+    n,i : INTEGER;
+    Tab1 : ARRAY_OF INTEGER[n];
+    Tab2 : ARRAY_OF INTEGER[n];
+    result : INTEGER;
+BEGIN
+    Write("Donner la taille des tableaux")
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(Tab1[i])
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(Tab2[i])
+    END_FOR
+    result = dot_product (Tab1,Tab2) /*on appelle la fonction en la stockant dans la variable result*/
+    IF (result=0) THEN
+        Write("Les 2 vecteurs sont orthogonaux")
+    ELSE
+        Write("les 2 vecteurs ne sont pas orthogonaux")
+    END_IF
+END
